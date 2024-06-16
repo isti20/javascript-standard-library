@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSON: static methods</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy",
+        address: {
+          country: "Indonesia",
+          city: "Subang",
+        },
+        hobbies: ["Coding", "Game", "Traveling"],
+      };
+
+      // JSON.stringify() melakukan konversi dari Object ke String
+      const json = JSON.stringify(person);
+      console.info(json);
+
+      // JSON.parse() melakukan konversi dari String ke Object
+      const jsonObject = JSON.parse(json);
+      console.info(jsonObject);
+    </script>
+  </body>
+</html>
