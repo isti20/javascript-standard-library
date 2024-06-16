@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Map</title>
+  </head>
+  <body>
+    <script>
+      const map = new Map();
+      map.set("Name", "Eko Kurniawan");
+      map.set("Address", "Indonesia");
+
+      console.info(map);
+      console.info(map.get("Name")); // Eko Kurniawan
+      console.info(map.get("Address")); // Indonesia
+      console.info(map.get("Hobby")); // undefined
+
+      for (const element of map) {
+        document.writeln(`<p>${element[0]} : ${element[1]}</p>`);
+      }
+
+      map.forEach((value, key) => document.writeln(`<p>${key} : ${value}</p>`));
+    </script>
+  </body>
+</html>
