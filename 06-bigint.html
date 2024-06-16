@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bigint</title>
+  </head>
+  <body>
+    <script>
+      const a = BigInt(Number.MAX_SAFE_INTEGER);
+      const b = BigInt(Number.MAX_SAFE_INTEGER);
+
+      const c = a + b;
+      console.info(c); // 18014398509481982n
+      console.info(typeof c); // bigint
+    </script>
+  </body>
+</html>
