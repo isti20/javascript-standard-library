@@ -16,10 +16,10 @@
       console.info(map.get("Hobby")); // undefined
 
       for (const element of map) {
-        document.writeln(`<p>${element[0]} : ${element[1]}</p>`);
+        console.info(`${element[0]} : ${element[1]}`);
       }
 
-      map.forEach((value, key) => document.writeln(`<p>${key} : ${value}</p>`));
+      map.forEach((value, key) => console.info(`${key} : ${value}`));
     </script>
   </body>
 </html>
