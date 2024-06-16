@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object: static method</title>
+  </head>
+  <body>
+    <script>
+      {
+        // object freeze
+        const person = {
+          firstName: "Eko",
+          lastName: "Khannedy",
+        };
+
+        // Object.freeze() membuat object menjadi object yg tidak bisa diubah dan dihapus/ditambah attributenya
+        Object.freeze(person);
+
+        person.firstName = "Budi"; // mengubah value attribute firstName
+        person.middleName = "Kurniawan"; // menambah attribute ke object
+        delete person.lastName; // menghapus attribute lastName
+
+        // hasilnya value dan attribute tidak berubah/bertambah/berkurang
+        console.log(person); // {firstName: 'Eko', lastName: 'Khannedy'}
+      }
+
+      {
+        // object seal
+        const car = {
+          brand: "Avanza",
+          country: "Japan",
+        };
+
+        // Object.freeze() membuat object menjadi object yg tidak bisa dihapus/ditambah attributenya, tapi bisa diubah
+        Object.seal(car);
+
+        car.brand = "Toyota"; // mengubah value attribute brand
+        car.color = "Black"; // menambah attribute ke object
+        delete car.country; // menghapus attribute country
+
+        // hasilnya value attribute brand berubah, tapi attributenya tidak bertambah/berkurang
+        console.log(car); // {brand: 'Toyota', country: 'Japan'}
+      }
+
+      {
+        // object assign
+        const target = {
+          firstName: "Budi",
+        };
+        const source = {
+          lastName: "Nugraha",
+        };
+
+        // Object.assign(target, source) menggabungkan semua attribute dari sebuah object ke object lain
+        Object.assign(target, source);
+        console.info(target); // {firstName: 'Budi', lastName: 'Nugraha'}
+        console.info(source); // {lastName: 'Nugraha'}
+      }
+
+      {
+        // Object property name & value
+        const person = {
+          firstName: "Eko",
+          lastName: "Khannedy",
+        };
+
+        // Object.values() digunakan untuk mengambil semua property value
+        console.info(Object.values(person)); // ['Eko', 'Khannedy']
+
+        // Object.getPropertyNames() digunakan untuk mengambil semua properti name
+        console.info(Object.getOwnPropertyNames(person)); // ['firstName', 'lastName']
+      }
+    </script>
+  </body>
+</html>
