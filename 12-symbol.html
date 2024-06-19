@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Symbol</title>
+  </head>
+  <body>
+    <script>
+      { 
+        // Symbol("description") -> tipe data yang digaransi akan selalu unique
+        const firstName = Symbol("firstName"); // description optional
+        const lastName = Symbol("firstName");
+
+        console.info(firstName === lastName); // false 
+        // false karena nama variabel beda (unique) meski descriptionnya sama
+      }
+
+      {
+        // symbol
+        const firstName = Symbol("firstName"); // description optional
+        const lastName = Symbol("lastName");
+
+        const person = {};
+        person[firstName] = "Eko";
+        person[lastName] = "Khannedy";
+
+        console.info(person);
+      }
+
+      {
+        // symbol for
+        console.info(Symbol.for("fullName") === Symbol.for("fullName")); // true
+        // true karena mengembalikan symbol yang sama yaitu fullName
+
+        const person = {};
+        person[Symbol.for("fullName")] = "Budi";
+        person[Symbol.for("nickName")] = "Nugraha";
+
+        console.info(person);
+        console.info(person[Symbol.for("fullName")]); // Budi
+        console.info(person[Symbol.for("nickName")]); // Nugraha
+      }
+    </script>
+  </body>
+</html>
