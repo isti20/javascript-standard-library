@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RegExp: RegExp Modifier i</title>
+  </head>
+  <body>
+    <script>
+      // regex modifier -> untuk mengubah sifat cara pencarian
+      // secara default setelah menemukan data, pencarian akan berhenti
+
+      // regex modifier i (Regex menjadi incase sensitive)
+
+      // tanpa menggunakan modifier i
+      const name = "Eko kurniawan Eko khannedy";
+      const regex = /eko/;
+
+      const result = regex.exec(name);
+      console.info(result); // null karena tidak ada kata eko, adanya Eko
+
+      // dengan menggunakan modifier i
+      const name1 = "Eko kurniawan Eko khannedy";
+      const regex1 = /eko/i; // cara 1
+      // const regex1 = new RegExp(/eko/, "i"); // cara 2
+
+      const result1 = regex1.exec(name1);
+      console.info(result1);
+    </script>
+  </body>
+</html>
