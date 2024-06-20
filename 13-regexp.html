@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RegExp</title>
+  </head>
+  <body>
+    <script>
+      {
+        //create regex
+
+        const regex1 = /eko/; // cara 1
+        const regex2 = new RegExp("eko"); // cara 2
+        const regex3 = new RegExp(/eko/); // cara 3
+      }
+
+      {
+        // test regex
+
+        const name = "eko kurniawan eko khannedy";
+        const regex = /eko/;
+        const regex2 = /kurniawan/;
+
+        // exec(value) -> menemukan data sesuai pola, jika tidak ada maka null
+        const result = regex.exec(name);
+        console.info(result);
+        console.info(regex.exec("tidak ada")); // null
+
+        const result2 = regex2.exec(name);
+        console.info(result2);
+        console.info(regex2.exec("salah")); // null
+
+        // test(value) -> menemukan data sesuai pola, jika ada maka true, jika tidak maka false
+        const test = regex.test(name);
+        console.info(test); // true
+        console.info(regex.test("tidak ada")); // false
+      }
+    </script>
+  </body>
+</html>
