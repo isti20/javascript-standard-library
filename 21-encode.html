@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Encode</title>
+  </head>
+  <body>
+    <script>
+      {
+        // encode uri dan decode uri
+
+        const url = "http://contoh.com/?name=Eko Kurniawan Khannedy";
+        console.info(url); // http://contoh.com/?name=Eko Kurniawan Khannedy
+
+        const encoded = encodeURI(url);
+        console.info(encoded); // http://contoh.com/?name=Eko%20Kurniawan%20Khannedy
+
+        const decoded = decodeURI(encoded);
+        console.info(decoded); // http://contoh.com/?name=Eko Kurniawan Khannedy
+      }
+
+      {
+        // encode uri dan decode uri
+
+        const value = "Eko&Kurniawan=Khannedy";
+        const url = "http://contoh.com/?name=";
+        console.info(url + value); // http://contoh.com/?name=Eko&Kurniawan=Khannedy
+
+        const encoded = encodeURIComponent(value);
+        console.info(url + encoded); // http://contoh.com/?name=Eko%26Kurniawan%3DKhannedy
+
+        const decoded = decodeURIComponent(encoded);
+        console.info(url + decoded); // http://contoh.com/?name=Eko&Kurniawan=Khannedy
+      }
+    </script>
+  </body>
+</html>
