@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <script>
+      {
+        const target = {
+          middleName: "Kurniawan",
+        };
+
+        const handler = {
+          get: function (target, property) {
+            return target[property];
+          },
+          set: function (target, property, value) {
+            return target[property] = value;
+          },
+        };
+
+        const proxy = new Proxy(target, handler);
+        proxy.firstName = "Eko";
+        proxy.lastName = "Khannedy";
+
+        console.info(proxy.firstName); // Eko
+        console.info(proxy.middleName); // Kurniawan
+        console.info(proxy.lastName); // Khannedy
+        console.info(target); // {middleName: 'Kurniawan', firstName: 'Eko', lastName: 'Khannedy'}
+      }
+
+      {
+        const target = {
+          middleName: "Nugraha",
+        };
+
+        const handler = {
+          get: function (target, property) {
+            console.info(`Access property : ${property}`);
+            return target[property];
+          },
+          set: function (target, property, value) {
+            console.info(`Change property ${property} : ${value}`);
+            return target[property] = value;
+          },
+        };
+
+        const proxy = new Proxy(target, handler);
+        proxy.firstName = "Budi"; // Change property firstName : Budi
+        proxy.lastName = null; // Change property lastName : null
+
+        console.info(proxy.firstName); 
+        // Access property : firstName
+        // Budi
+
+        console.info(proxy.middleName);
+        // Access property : middleName
+        // Nugraha
+
+        console.info(proxy.lastName);
+        // Access property : lastName
+        // null
+
+        console.info(target);
+        // {middleName: 'Nugraha', firstName: 'Budi', lastName: null}
+      }
+
+      {
+        const target = {
+          middleName: "Cintia",
+        };
+
+        const handler = {
+          get: function (target, property) {
+            console.info(`Access property : ${property}`);
+            return target[property];
+          },
+          set: function (target, property, value) {
+            console.info(`Change property ${property} : ${value}`);
+            if (value == null) {
+              // throw new Error("Tidak boleh null");
+              target[property] = "";
+            } else {
+              target[property] = value;
+            }
+          },
+        };
+
+        const proxy = new Proxy(target, handler);
+        proxy.firstName = "Claudya"; // Change property firstName : Claudya
+        proxy.lastName = null; // Change property lastName : null
+
+        console.info(proxy.firstName);
+        // Access property : firstName
+        // Claudya
+
+        console.info(proxy.middleName);
+        // Access property : middleName
+        // Cintia
+
+        console.info(proxy.lastName);
+        // Access property : middleName
+        // " "
+
+        console.info(target);
+        // {middleName: 'Cintia', firstName: 'Claudya', lastName: ''}
+      }
+    </script>
+  </body>
+</html>
