@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RegExp: RegExp Modifier g</title>
+  </head>
+  <body>
+    <script>
+      const name = "eko kurniawan\nEko khannedy\nEdi Kurniawan";
+      const regex1 = /Eko/g; // dengan menggunakan modifier g
+      const regex2 = /kurniawan/ig; // dengan menggunakan modifier g dan i
+
+      let result;
+      while ((result = regex1.exec(name)) !== null) {
+        console.info(result);
+      }
+
+      while ((result = regex2.exec(name)) !== null) {
+        console.info(result);
+      }
+    </script>
+  </body>
+</html>
