@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RegExp di string</title>
+  </head>
+  <body>
+    <script>
+      const name = "edo eko eki eka eku eke edo eko eki";
+
+      console.log(name.match(/ek[aiueo]/gi)); // ['eko', 'eki', 'eka', 'eku', 'eke', 'eko', 'eki']
+      console.info(name.search(/ek[aiueo]/gi)); // 4
+      console.info(name.replace(/ek[aiueo]/i, "kamu")); // edo kamu eki eka eku eke edo eko eki
+      console.info(name.replaceAll(/ek[aiueo]/gi, "kamu")); // edo kamu kamu kamu kamu kamu edo kamu kamu
+      console.info(name.split(/e/gi)); // ['', 'do ', 'ko ', 'ki ', 'ka ', 'ku ', 'k', ' ', 'do ', 'ko ', 'ki']
+    </script>
+  </body>
+</html>
