@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reflect</title>
+  </head>
+  <body>
+    <script>
+      const person = {};
+
+      // menambahkan preprty ke object person
+      Reflect.set(person, "firstName", "Eko");
+      Reflect.set(person, "lastName", "Khannedy");
+
+      console.log(person); // {firstName: 'Eko', lastName: 'Khannedy'}
+
+      // mendapatkan property tanpa mengakses object person
+      console.info(Reflect.get(person, "firstName")); // Eko
+      console.info(Reflect.get(person, "lastName")); // Khannedy
+
+      // mengecek ada atau tidak sebuah property tanpa mengakses object person
+      console.info(Reflect.has(person, "firstName")); // true
+      console.info(Reflect.has(person, "middleName")); // false
+      console.info(Reflect.has(person, "lastName")); // true
+    </script>
+  </body>
+</html>
